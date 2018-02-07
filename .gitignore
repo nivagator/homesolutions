@@ -98,3 +98,5 @@ bfg.jar
 .git-rewrite
 
 homesolutions.md
+
+migrations/
