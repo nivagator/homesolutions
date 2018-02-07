@@ -16,13 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import home_view
+from .views import HomeTemplateView
+from contact.views import ContactFormView, ContactSuccessView
 
 app_name='homesolutions'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view, name='home'),
-    path('getstarted/', include('contact.urls', namespace='contact')),
-    path('contact/', include('contact.urls')),
+    path('', HomeTemplateView.as_view(), name='home'),
+    # path('getstarted/', include('contact.urls', namespace='contact')),
+    path('getstarted/', ContactFormView.as_view(), name='contact'),
+    # path('contact/', include('contact.urls')),
+    # path('contactview/', ContactFormView.as_view(), name='contact'),
+    path('success/', ContactSuccessView.as_view(), name='contactsuccess'),
 ]

@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <meta name="description" content="">
-    <meta name="author" content=""> -->
-    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+    
 
     <title>{% block title %}Home Strength Solutions{% endblock %}</title>
 
@@ -26,16 +24,17 @@
                 <nav class="nav nav-masthead justify-content-center">
                   <a class="nav-link" href="/">Home</a>
                   <!-- <a class="nav-link" href="#">Features</a> -->
-                  <a class="nav-link" href="{% url 'contact:contact' %}">Contact</a>
+                  <a class="nav-link" href="/getstarted/">Contact</a> 
                 </nav>
               </div>
+              
             </header>
             {% if messages %}
-            <div class="messages">
+            <ul class="alert alert-success messages" role="alert">
                 {% for message in messages %}
-                <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                 {% endfor %}
-            </div>
+            </ul>
             {% endif %}
             <main role="main" class="inner cover">
                 {% block content %}
