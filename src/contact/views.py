@@ -9,12 +9,9 @@ from .models import Contact
 
 # Create your views here.
 class ContactSuccessView(TemplateView):
-    print("contact success class view")
     template_name = "contact/success.html"
-    
 
 class ContactFormView(CreateView):
-    print("contact form class view")
     model = Contact
     form_class = ContactModelForm
     template_name = 'contact/contact.html' 

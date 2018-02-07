@@ -32,4 +32,4 @@ urlpatterns = [
 ]
 
 admin.site.site_header = ("HSS Site Administration")
-admin.site.site_title = _("HSS Site Admin")
+admin.site.site_title = ("HSS Site Admin")

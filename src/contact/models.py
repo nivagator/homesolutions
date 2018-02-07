@@ -1,8 +1,10 @@
-from django.db import models
-
 from datetime import datetime, date
-from django.utils.encoding import smart_text
+from django.core.mail import send_mail
+from django.db import models
+from django.db.models.signals import post_save
 from django.utils import timezone
+from django.utils.encoding import smart_text
+
 # from localflavors.us.use_states import STATE_CHOICES
 # from localflavors.us.models import USStateField
 
@@ -42,3 +44,18 @@ class Contact(models.Model):
      
     def __str__(self): 
         return smart_text(self.name)
+
+# need post save receiver function
+def contact_model_post_save_reciever(sender, instance, created, *args, **kwargs):
+    print("after save")
+    send_mail(
+        'Subject',
+        'Message',
+        'gavin@sineanalytics.com', # from
+        ['gavingreer@mac.com'], #to
+        fail_silently = False,
+    )
+    print('email sent')
+    
+
+post_save.connect(contact_model_post_save_reciever, sender=Contact)
