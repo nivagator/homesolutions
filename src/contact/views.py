@@ -11,13 +11,13 @@ from .models import Contact
 class ContactSuccessView(TemplateView):
     print("contact success class view")
     template_name = "contact/success.html"
-
+    
 
 class ContactFormView(CreateView):
     print("contact form class view")
     model = Contact
     form_class = ContactModelForm
-    template = 'contact/contact.html' 
+    template_name = 'contact/contact.html' 
     success_url = '/success/'
     # success_message = "Message recieved! You're one step closer to selling your home!"
 
