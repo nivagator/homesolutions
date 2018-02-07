@@ -30,3 +30,5 @@ urlpatterns = [
     # path('contactview/', ContactFormView.as_view(), name='contact'),
     path('success/', ContactSuccessView.as_view(), name='contactsuccess'),
 ]
+
+admin.site.site_header = ("HSS Site Administration")
