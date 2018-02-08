@@ -48,9 +48,22 @@ class Contact(models.Model):
 # need post save receiver function
 def contact_model_post_save_reciever(sender, instance, created, *args, **kwargs):
     print("after save")
+    print(instance.address)
+    message = "Time: " + str(instance.timestamp.strftime("%Y-%m-%d %H:%M")) + "\n" \
+        + "Name: " + instance.name + "\n" \
+        + "Address: "  + "\n" \
+        + instance.address + "\n" \
+        + instance.city + ", " + instance.state + "\n" \
+        + "Phone: " + instance.phone_number + "\n" \
+        + "Email: " + instance.email + "\n" \
+        + "Realtor: " + instance.realtor + "\n" \
+        + "Contact via " + instance.contact_pref + " in the " + instance.contact_time_pref + "\n" \
+        + "Message: " + "\n" \
+        + instance.message
+        
     send_mail(
         'Subject',
-        'Message',
+        message,
         'gavin@sineanalytics.com', # from
         ['gavingreer@mac.com'], #to
         fail_silently = False,

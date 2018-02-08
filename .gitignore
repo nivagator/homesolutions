@@ -100,3 +100,8 @@ bfg.jar
 homesolutions.md
 
 migrations/
+
+*/settings.py
+homesolutions/settings.py
+settings.*
+secrets.py
